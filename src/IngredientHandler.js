@@ -10,26 +10,29 @@ const IngredientHandler = () => {
   const addIngredientField = e => {
     e.preventDefault();
     setIngredientKey(ingredientKey + 1);
-    setIngredientFieldList(
-      ingredientFieldList.concat(
-        <Ingredient
-          key={ingredientKey + 1}
-          showRemove={true}
-          removeIngredientField={removeIngredientField}
-          id={ingredientKey + 1}
-        />
-      )
+    const newArray = [...ingredientFieldList];
+    newArray.push(
+      <Ingredient
+        key={ingredientKey + 1}
+        showRemove={true}
+        removeIngredientField={removeIngredientField}
+        id={ingredientKey + 1}
+      />
     );
-    console.log(ingredientKey);
+    setIngredientFieldList(newArray);
   };
 
   const removeIngredientField = id => {
-    const filteredArray = ingredientFieldList.filter(ingredientField => {
-      console.log(ingredientField.props.id);
-      return ingredientField.props.id !== id;
-    });
-    console.log(filteredArray);
-    setIngredientFieldList(filteredArray);
+    console.log(ingredientFieldList);
+    // ingredientFieldList.forEach(ingredient => {
+    //   console.log(ingredient.props.id);
+    // });
+    // const filteredArray = ingredientFieldList.filter(ingredientField => {
+    //   console.log(ingredientField.props.id);
+    //   return ingredientField.props.id !== id;
+    // });
+    // console.log(filteredArray);
+    // setIngredientFieldList(filteredArray);
   };
 
   return (

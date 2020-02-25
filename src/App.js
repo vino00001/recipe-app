@@ -1,7 +1,8 @@
 import React from 'react';
+import { RecipeInserter } from './RecipeInserter';
 
 function App() {
-  return <h1>Hello</h1>;
+  return <RecipeInserter />;
 }
 
 export default App;

@@ -41,10 +41,7 @@ const Ingredient = props => {
         <div className="control">
           <button
             className="button is-danger"
-            onClick={() => {
-              console.log(props.id);
-              props.removeIngredientField(props.id);
-            }}
+            onClick={() => props.removeIngredientField(props.id)}
           >
             x
           </button>

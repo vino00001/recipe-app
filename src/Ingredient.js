@@ -6,6 +6,7 @@ const Ingredient = props => {
   const amountMax = 999;
 
   const unitOptions = [
+    'unit',
     'millilitres(mL)',
     'litres(L)',
     'Tablespoon(15mL)',

@@ -391,7 +391,7 @@ const RecipeDisplay = () => {
   return (
     <div className="columns">
       <div className="column is-three-fifths is-offset-one-fifth">
-        <div className="columns">
+        <div className="columns is-multiline">
           {recipies.map((recipe, index) => {
             return <RecipeCard key={index} recipe={recipe} />;
           })}

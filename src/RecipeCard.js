@@ -1,10 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const RecipeCard = ({ recipe }) => {
   console.log(recipe);
+  const [columnStyling, setColumnStyling] = useState('column is-one-third');
+  const [isFullWidth, setIsFullWidth] = useState(false);
+
+  const switchToNormal = () => {
+    setColumnStyling('column is-one-third');
+    setIsFullWidth(false);
+  };
+
+  const switchToFullWidth = () => {
+    setColumnStyling('column is-full');
+    setIsFullWidth(true);
+  };
   return (
-    <div className="column">
-      <div className="card" onClick={() => console.log(`${recipe.id} clicked`)}>
+    <div className={columnStyling}>
+      <div
+        className="card"
+        onClick={isFullWidth ? switchToNormal : switchToFullWidth}
+      >
         <div className="card-image">
           <figure className="image is-4by3">
             <img src={recipe.image} alt="" />

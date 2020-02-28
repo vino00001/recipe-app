@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import IngredientHandler from './IngredientHandler';
 import StepHandler from './StepHandler';
+import CategoryHandler from './CategoryHandler';
 
 export const RecipeInserter = () => {
   const [name, setName] = useState('');
@@ -41,6 +42,7 @@ export const RecipeInserter = () => {
         </div>
         <IngredientHandler />
         <StepHandler />
+        <CategoryHandler />
         <div className="field is-grouped is-grouped-right">
           <button className="button is-link ">Submit</button>
         </div>

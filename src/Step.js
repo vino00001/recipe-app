@@ -7,7 +7,7 @@ const Step = props => {
         <p className="subtitle">{props.id}</p>
       </div>
       <div className="control">
-        <input type="text" className="input" />
+        <input type="text" className="input" placeholder="Step..." />
       </div>
       {/* {props.showRemove && (
         <div className="control">

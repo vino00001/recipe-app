@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 const Step = props => {
   return (
     <div className="field is-grouped">
       <div className="control">
-        <p className="subtitle">{props.id}</p>
+        <p className="subtitle">Step {props.id}:</p>
       </div>
       <div className="control">
         <input type="text" className="input" placeholder="Step..." />

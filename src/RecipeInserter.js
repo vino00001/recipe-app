@@ -3,7 +3,7 @@ import IngredientHandler from './IngredientHandler';
 import StepHandler from './StepHandler';
 import CategoryHandler from './CategoryHandler';
 
-export const RecipeInserter = () => {
+const RecipeInserter = () => {
   const [name, setName] = useState('');
   const [imageURL, setImageURL] = useState('');
 
@@ -14,7 +14,7 @@ export const RecipeInserter = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container is-widescreen">
       <form onSubmit={handleSubmit}>
         <div className="field">
           <label className="label">Name</label>
@@ -50,3 +50,5 @@ export const RecipeInserter = () => {
     </div>
   );
 };
+
+export default RecipeInserter;

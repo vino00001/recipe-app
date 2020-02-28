@@ -1,8 +1,14 @@
 import React from 'react';
-import { RecipeInserter } from './RecipeInserter';
+import RecipeInserter from './RecipeInserter';
+import RecipeDisplay from './RecipeDisplay';
 
 function App() {
-  return <RecipeInserter />;
+  return (
+    <div>
+      <RecipeInserter />
+      <RecipeDisplay />
+    </div>
+  );
 }
 
 export default App;

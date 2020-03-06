@@ -1,9 +1,15 @@
 import React, { useState } from 'react';
 import Ingredient from './Ingredient';
 
-const IngredientHandler = () => {
-  const [ingredientKey, setIngredientKey] = useState(1);
+const IngredientHandler = ({
+  ingredients,
+  setIngredients,
+  addIngredient,
+  removeIngredient
+}) => {
+  const [ingredientKey, setIngredientKey] = useState(1); //used as array key and id for every ingredient
   const [ingredientFieldList, setIngredientFieldList] = useState([
+    //list of all ingredient fields
     { showRemove: false, id: ingredientKey }
   ]);
 
@@ -15,11 +21,17 @@ const IngredientHandler = () => {
     setIngredientFieldList(newArray);
   };
 
+  /**
+   * itearets through the field list and removes the one with the specified id
+   * @param {int} id
+   */
+
   const removeIngredientField = id => {
-    const filteredArray = ingredientFieldList.filter(
+    const filteredIngredientFieldArray = ingredientFieldList.filter(
       ingredientField => ingredientField.id !== id
     );
-    setIngredientFieldList(filteredArray);
+    setIngredientFieldList(filteredIngredientFieldArray);
+    removeIngredient(id);
   };
 
   return (
@@ -31,6 +43,9 @@ const IngredientHandler = () => {
           showRemove={ingredientField.showRemove}
           removeIngredientField={removeIngredientField}
           id={ingredientField.id}
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+          addIngredient={addIngredient}
         />
       ))}
       <div className="control">

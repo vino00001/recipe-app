@@ -1,9 +1,16 @@
 import React from 'react';
 
-const Ingredient = props => {
-  const showRemove = props.showRemove;
+const Ingredient = ({
+  showRemove,
+  id,
+  ingredients,
+  setIngredients,
+  removeIngredientField,
+  addIngredient
+}) => {
   const amountMin = 1;
   const amountMax = 999;
+  const arrayIndex = id - 1;
 
   const unitOptions = [
     'unit',
@@ -19,6 +26,14 @@ const Ingredient = props => {
     <option key={index}>{option}</option>
   ));
 
+  const addNewIngredient = e => {
+    addIngredient(e, id);
+  };
+
+  const removeIngredient = () => {
+    removeIngredientField(id);
+  };
+
   return (
     <div className="field is-grouped">
       <div className="control">
@@ -28,9 +43,10 @@ const Ingredient = props => {
         <input
           type="number"
           className="input"
-          defaultValue={amountMin}
           min={amountMin}
           max={amountMax}
+          value={ingredients[arrayIndex]}
+          onChange={e => addNewIngredient(e)}
         />
       </div>
       <div className="control">
@@ -40,10 +56,7 @@ const Ingredient = props => {
       </div>
       {showRemove && (
         <div className="control">
-          <button
-            className="button is-danger"
-            onClick={() => props.removeIngredientField(props.id)}
-          >
+          <button className="button is-danger" onClick={removeIngredient}>
             x
           </button>
         </div>

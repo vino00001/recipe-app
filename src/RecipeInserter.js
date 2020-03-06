@@ -6,11 +6,29 @@ import CategoryHandler from './CategoryHandler';
 const RecipeInserter = () => {
   const [name, setName] = useState('');
   const [imageURL, setImageURL] = useState('');
+  const [ingredients, setIngredients] = useState([]);
+  const [steps, setSteps] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   const handleSubmit = e => {
+    //add POST to backend
     e.preventDefault();
     console.log('Form submitted');
     console.log(name);
+  };
+
+  const addIngredient = (e, id) => {
+    let newArray = [...ingredients];
+    newArray[id - 1] = e.target.value;
+    console.log(newArray);
+    setIngredients(newArray);
+  };
+
+  const removeIngredient = id => {
+    const filteredIngredientArray = ingredients.filter(
+      ingredient => ingredient !== id - 1
+    );
+    setIngredients(filteredIngredientArray);
   };
 
   return (
@@ -40,9 +58,17 @@ const RecipeInserter = () => {
             />
           </div>
         </div>
-        <IngredientHandler />
-        <StepHandler />
-        <CategoryHandler />
+        <IngredientHandler
+          ingredients={ingredients}
+          setIngredients={setIngredients}
+          addIngredient={addIngredient}
+          removeIngredient={removeIngredient}
+        />
+        <StepHandler steps={steps} setSteps={setSteps} />
+        <CategoryHandler
+          categories={categories}
+          setCategories={setCategories}
+        />
         <div className="field is-grouped is-grouped-right">
           <button className="button is-link ">Submit</button>
         </div>

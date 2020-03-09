@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Ingredient = ({
   showRemove,
   id,
-  ingredients,
-  setIngredients,
   removeIngredientField,
   addIngredient
 }) => {
   const amountMin = 1;
   const amountMax = 999;
-  const arrayIndex = id - 1;
+
+  const [ingredient, setIngredient] = useState({
+    //objekt som skickas till arrayen som håller all data som ska skickas till backend
+    id: id,
+    name: '',
+    amount: 0,
+    unit: 'unit'
+  });
 
   const unitOptions = [
     'unit',
@@ -25,10 +30,6 @@ const Ingredient = ({
   const unitOptionArray = unitOptions.map((option, index) => (
     <option key={index}>{option}</option>
   ));
-
-  const addNewIngredient = e => {
-    addIngredient(e, id);
-  };
 
   const removeIngredient = () => {
     removeIngredientField(id);
@@ -45,8 +46,15 @@ const Ingredient = ({
           className="input"
           min={amountMin}
           max={amountMax}
-          value={ingredients[arrayIndex]}
-          onChange={e => addNewIngredient(e)}
+          value={ingredient.amount}
+          onChange={e => {
+            let newObject = { ...ingredient };
+            newObject.amount = e.target.value;
+            console.log(newObject); //visar det egentliga objektet
+            setIngredient(newObject); //sätter ingredient som det nya objektet
+            console.log(ingredient); //visar det som borde vara det egentliga objektet, men felaktigt
+            addIngredient(ingredient, id);
+          }}
         />
       </div>
       <div className="control">

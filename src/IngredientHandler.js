@@ -43,8 +43,6 @@ const IngredientHandler = ({
           showRemove={ingredientField.showRemove}
           removeIngredientField={removeIngredientField}
           id={ingredientField.id}
-          ingredients={ingredients}
-          setIngredients={setIngredients}
           addIngredient={addIngredient}
         />
       ))}

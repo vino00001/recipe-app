@@ -17,16 +17,21 @@ const RecipeInserter = () => {
     console.log(name);
   };
 
-  const addIngredient = (e, id) => {
+  /**
+   * updates the ingredients array when data is changed in the Ingredient component
+   * @param {Object} newIngredient
+   * @param {int} id
+   */
+  const addIngredient = (newIngredient, id) => {
     let newArray = [...ingredients];
-    newArray[id - 1] = e.target.value;
+    newArray[id - 1] = newIngredient;
     console.log(newArray);
     setIngredients(newArray);
   };
 
   const removeIngredient = id => {
     const filteredIngredientArray = ingredients.filter(
-      ingredient => ingredient !== id - 1
+      ingredient => ingredient.id !== id
     );
     setIngredients(filteredIngredientArray);
   };

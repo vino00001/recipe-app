@@ -1,0 +1,13 @@
+nu\te4\recipebackend\entities\Ingredient.class
+nu\te4\recipebackend\entities\Category.class
+nu\te4\recipebackend\entities\Recipe.class
+nu\te4\recipebackend\resources\RecipeResource.class
+nu\te4\recipebackend\beans\InstructionBean.class
+nu\te4\recipebackend\beans\CategoryBean.class
+nu\te4\recipebackend\resources\JavaEE8Resource.class
+nu\te4\recipebackend\ConnectionFactory.class
+nu\te4\recipebackend\JAXRSConfiguration.class
+nu\te4\recipebackend\beans\IngredientBean.class
+nu\te4\recipebackend\beans\RecipeBean.class
+nu\te4\recipebackend\beans\PropertiesBean.class
+nu\te4\recipebackend\entities\Instruction.class

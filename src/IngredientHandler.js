@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Ingredient from './Ingredient';
 
+/** lite rörig state-hantering här... Men jag har för mig att du gjorde lite
+ * omstrukturering av detta precis i slutet av projektet. Känns som om du inte
+ * han med riktigt att städa bort det gamla */
 const IngredientHandler = ({
   ingredients,
   setIngredients,
@@ -43,7 +46,7 @@ const IngredientHandler = ({
           showRemove={ingredientField.showRemove}
           removeIngredientField={removeIngredientField}
           id={ingredientField.id}
-          ingredients={ingredients}
+          ingredients={ingredients} /* Varför behöver komponenten för att visa EN ingrediens tillgång till ALLA ingredienser? */
           setIngredients={setIngredients}
           addIngredient={addIngredient}
         />

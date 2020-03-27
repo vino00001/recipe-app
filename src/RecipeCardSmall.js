@@ -2,7 +2,8 @@ import React from 'react';
 
 const RecipeCardSmall = ({ recipe, switchScene }) => {
   return (
-    <div className="card" onClick={switchScene}>
+    
+    <div className="card" onClick={switchScene}>  {/* Du borde ha css som indikerar att detta element går att klicka på */}
       <div className="card-image">
         <figure className="image is-4by3">
           <img src={recipe.image} alt="" />

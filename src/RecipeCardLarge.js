@@ -2,6 +2,7 @@ import React from 'react';
 import RecipeCardIngredient from './RecipeCardIngredient';
 import RecipeCardInstruction from './RecipeCardInstruction';
 
+{/** Jag saknar möjlighet att switcha tillbaka till litet läge */}
 const RecipeCardLarge = ({ recipe, switchScene }) => {
   return (
     <div className="tile is-ancestor">
@@ -31,7 +32,7 @@ const RecipeCardLarge = ({ recipe, switchScene }) => {
           <div className="tile is-child">
             <ul>
               {recipe.instruction.map(instruction => {
-                return <RecipeCardInstruction instruction={instruction} />;
+                return <RecipeCardInstruction instruction={instruction} />; {/* Saknar key-property */}
               })}
             </ul>
           </div>
